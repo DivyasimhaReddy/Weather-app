@@ -1,0 +1,114 @@
+/* Weather.css */
+
+.weather-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(-45deg, #89f7fe, #66a6ff, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.weather-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.weather-form input,
+.weather-form button,
+.weather-card {
+  transition: all 0.3s ease;
+}
+
+.weather-form input {
+  padding: 10px;
+  width: 60%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.weather-form button {
+  padding: 10px 15px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.weather-form button:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.05);
+}
+
+.weather-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.weather-card h2 {
+  margin-top: 0;
+}
+
+.weather-card img {
+  width: 100px;
+  height: 100px;
+}
+
+.weather-card .temp {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.weather-card p {
+  margin: 6px 0;
+}
+
+.error {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid red;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #b00020;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .weather-form {
+    flex-direction: column;
+  }
+
+  .weather-form input,
+  .weather-form button {
+    width: 100%;
+  }
+}
