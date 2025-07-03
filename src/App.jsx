@@ -13,20 +13,46 @@
 //   return <div>{message}</div>;
 // }
 
+// import React from "react";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import GetData from "./components/GetData";
+// import Weather from "./components/Weather";
+// export default function App() {
+//   return (
+//     <BrowserRouter>
+//       <nav>
+//         <Link to="/">Home</Link>
+//       </nav>
+//       <Routes>
+//         <Route path="/" element={<h1>Welcome to home page</h1>} />
+//         <Route path="/getData" element={<GetData />} />
+//         {/* getData is funcion name and GetData is file name  */}
+//         <Route path="/Weather" element={<Weather />} />
+//         <Route path="*" element={<h1>Page Not Found</h1>} />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import GetData from "./components/GetData";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import Home from "./components/Home";
 import Weather from "./components/Weather";
-export default function App() {
+
+function App() {
   return (
-    <BrowserRouter>
+    <Router>
+      <nav>
+        <Link to="/">Home</Link>
+      </nav>
       <Routes>
-        <Route path="/" element={<h1>Welcome to home page</h1>} />
-        <Route path="/getData" element={<GetData />} />
-        {/* getData is funcion name and GetData is file name  */}
-        <Route path="/Weather" element={<Weather />} />
-        <Route path="*" element={<h1>Page Not Found</h1>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/weather" element={<Weather />} />
+        <Route path="*" element={<h2>not found</h2>} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
+
+export default App;
