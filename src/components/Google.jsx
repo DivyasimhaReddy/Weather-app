@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { signInWithGoogle } from "../firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 export default function Google({ onLogin }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate(); // ← ✅ Step 1
 
   const handleLogin = async () => {
     setLoading(true);
@@ -11,6 +13,9 @@ export default function Google({ onLogin }) {
     try {
       const result = await signInWithGoogle();
       onLogin(result.user); // pass user info up
+
+      // ✅ Step 2: Navigate to weather page
+      navigate("/weather");
     } catch (err) {
       setError(err.message);
     }
